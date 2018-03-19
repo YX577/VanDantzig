@@ -16,7 +16,7 @@
 #################################### 
 
 # Set working directory
-# setwd("~/Documents/Grad/SCRiM/vanDantzig/Model_Versions/Uncertainty_SLR_GEV/Sensitivity_Analysis/Sobol/SALib/Output")
+# setwd("~/vanDantzig/Model_Versions/Uncertainty_SLR_GEV/Sensitivity_Analysis/Sobol/SALib/Output")
 
 # Libraries----
 library(RColorBrewer) # good color palettes
@@ -33,7 +33,7 @@ source('../Scripts/upper.diag.R')
 n_params = 12
 
 # Set Sobol indices file name 
-Sobol_file = "sobolIndices_damages.txt"
+Sobol_file = "sobolIndices_reliability.txt"
 
 #################################### 
 # Import data from sensitivity analysis
@@ -130,13 +130,16 @@ s1st1$desc <- param_desc
 
 # plotting results
 #pdf("Figures/test.pdf")
+#png("Figures/damages.png", width = 3, height = 3)
 plotRadCon(df=s1st1
            ,s2=s2
            ,scaling = 1
            ,s2_sig=s2_sig1
-           ,filename = 'Figures/damages' 
+           ,filename = 'Figures/reliability' 
            ,plotType = 'EPS'
            ,legLoc = "bottomcenter",cex = 1.5
             )
 
 #dev.off()
+
+### Plot for each objective and assemble in Powerpoint or Photoshop
